@@ -1,34 +1,43 @@
+import { useState } from "react";
+
 import "./App.css";
 
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+
 function App() {
-  return (
-    <div className="app">
 
-      {/* Login Card */}
-      <div className="login-card">
+  const [currentPage, setCurrentPage] = useState("login");
 
-        {/* App Title */}
-        <h1>TechBridge</h1>
-        <p>Your trusted technology assistant</p>
+  if (currentPage === "login") {
+    return <Login setCurrentPage={setCurrentPage} />;
+  }
 
-        {/*Login Form */}
-        <form>
-          <label>Email</label>
-          <input type="email" placeholder="Enter your email" />
+  if (currentPage === "home") {
+    return <Home setCurrentPage={setCurrentPage} />;
+  }
 
-          <label>Password</label>
-          <input type="password" placeholder="Enter your password" />
+}
 
-          {/* Login Button */}
-          <button type="submit">Log In</button>
-        </form>
-        
-         {/* Create Account Button */}  
-        <button className="secondary-button">Create Account</button>
-        <button className="guest-button">Continue as Guest</button>
-      </div>
-    </div>
-  );
+export default App;import { useState } from "react";
+
+import "./App.css";
+
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+
+function App() {
+
+  const [currentPage, setCurrentPage] = useState("login");
+
+  if (currentPage === "login") {
+    return <Login setCurrentPage={setCurrentPage} />;
+  }
+
+  if (currentPage === "home") {
+    return <Home setCurrentPage={setCurrentPage} />;
+  }
+
 }
 
 export default App;
