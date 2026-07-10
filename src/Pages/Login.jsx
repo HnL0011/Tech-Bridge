@@ -1,58 +1,33 @@
-function Login({ setCurrentPage }) {
+import { useState } from "react";
+import "./App.css";
+
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+
+function App() {
+  // Controls which screen is currently displayed
+  const [currentPage, setCurrentPage] = useState("login");
+
+  // Login screen
+  if (currentPage === "login") {
+    return <Login setCurrentPage={setCurrentPage} />;
+  }
+
+  // Home screen
+  if (currentPage === "home") {
+    return <Home setCurrentPage={setCurrentPage} />;
+  }
+
+  // Backup screen in case the page name is incorrect
   return (
     <div className="app">
+      <h1>Page not found</h1>
 
-      {/* Login Card */}
-      <div className="login-card">
-
-        {/* App Title */}
-        <h1>TechBridge</h1>
-        <p>Your trusted technology assistant</p>
-
-        {/* Login Form */}
-        <form>
-
-          {/* Email */}
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder="Enter your email"
-          />
-
-          {/* Password */}
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-          />
-
-          {/* Login Button */}
-          <button
-            type="button"
-            onClick={() => setCurrentPage("home")}
-          >
-            Log In
-          </button>
-
-        </form>
-
-        {/* Create Account */}
-        <button className="secondary-button">
-          Create Account
-        </button>
-
-        {/* Continue as Guest */}
-        <button
-          className="guest-button"
-          onClick={() => setCurrentPage("home")}
-        >
-          Continue as Guest
-        </button>
-
-      </div>
-
+      <button onClick={() => setCurrentPage("login")}>
+        Return to Login
+      </button>
     </div>
   );
 }
 
-export default Login;
+export default App;
