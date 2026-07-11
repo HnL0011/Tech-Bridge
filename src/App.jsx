@@ -3,6 +3,7 @@ import "./App.css";
 
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 
 function App() {
   // Controls which screen is currently displayed
@@ -16,6 +17,11 @@ function App() {
   // Home screen
   if (currentPage === "home") {
     return <Home setCurrentPage={setCurrentPage} />;
+  }
+
+  // Profile Screen
+  if (currentPage === "profile") {
+    return <Profile setCurrentPage={setCurrentPage} />;
   }
 
   // Backup screen in case the page name is incorrect
