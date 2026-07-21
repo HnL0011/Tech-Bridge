@@ -1,20 +1,18 @@
-function Home({ setCurrentPage, openGuide }) {
-  const guides = [
-    {
-      title: "Connect to Wi-Fi",
-      description:
-        "Learn how to connect a phone, tablet, or computer to Wi-Fi.",
-      difficulty: "Easy",
-      time: "3 minutes",
-    },
-    {
-      title: "Print from an iPhone",
-      description:
-        "Use AirPrint to print photos and documents from your iPhone.",
-      difficulty: "Easy",
-      time: "5 minutes",
-    },
-  ];
+import guides from "../data/guides";
+
+function Home({
+  setCurrentPage,
+  openGuide,
+  searchQuery,
+  setSearchQuery,
+  openSearch,
+}) {
+  const recentGuides = guides.slice(0, 2);
+
+  function handleSearch(event) {
+    event.preventDefault();
+    openSearch(searchQuery);
+  }
 
   return (
     <div className="page">
@@ -38,7 +36,7 @@ function Home({ setCurrentPage, openGuide }) {
 
           <button
             type="button"
-            onClick={() => setCurrentPage("search")}
+            onClick={() => openSearch("")}
           >
             Search
           </button>
@@ -71,21 +69,27 @@ function Home({ setCurrentPage, openGuide }) {
             computer, Wi-Fi, printer, and smart devices.
           </p>
 
-          <div className="home-search-bar">
+          <form
+            className="home-search-bar"
+            onSubmit={handleSearch}
+          >
             <input
-              type="text"
+              type="search"
               placeholder="Ask a technology question..."
               aria-label="Ask a technology question"
+              value={searchQuery}
+              onChange={(event) =>
+                setSearchQuery(event.target.value)
+              }
             />
 
             <button
-              type="button"
+              type="submit"
               className="primary-button"
-              onClick={() => setCurrentPage("search")}
             >
               Search
             </button>
-          </div>
+          </form>
         </section>
 
         <section className="content-section">
@@ -100,7 +104,7 @@ function Home({ setCurrentPage, openGuide }) {
             <button
               type="button"
               className="category-card"
-              onClick={() => setCurrentPage("search")}
+              onClick={() => openSearch("phone")}
             >
               <span className="category-icon">📱</span>
               <span>Phones</span>
@@ -110,7 +114,7 @@ function Home({ setCurrentPage, openGuide }) {
             <button
               type="button"
               className="category-card"
-              onClick={() => setCurrentPage("search")}
+              onClick={() => openSearch("computer")}
             >
               <span className="category-icon">💻</span>
               <span>Computers</span>
@@ -120,7 +124,7 @@ function Home({ setCurrentPage, openGuide }) {
             <button
               type="button"
               className="category-card"
-              onClick={() => setCurrentPage("search")}
+              onClick={() => openSearch("Wi-Fi")}
             >
               <span className="category-icon">🌐</span>
               <span>Wi-Fi</span>
@@ -130,7 +134,7 @@ function Home({ setCurrentPage, openGuide }) {
             <button
               type="button"
               className="category-card"
-              onClick={() => setCurrentPage("search")}
+              onClick={() => openSearch("printer")}
             >
               <span className="category-icon">🖨️</span>
               <span>Printers</span>
@@ -140,7 +144,7 @@ function Home({ setCurrentPage, openGuide }) {
             <button
               type="button"
               className="category-card"
-              onClick={() => setCurrentPage("search")}
+              onClick={() => openSearch("smart")}
             >
               <span className="category-icon">📺</span>
               <span>Smart Devices</span>
@@ -169,19 +173,21 @@ function Home({ setCurrentPage, openGuide }) {
             <button
               type="button"
               className="link-button"
-              onClick={() => setCurrentPage("search")}
+              onClick={() => openSearch("")}
             >
               View all guides
             </button>
           </div>
 
           <div className="guide-grid">
-            {guides.map((guide) => (
+            {recentGuides.map((guide) => (
               <article
                 className="guide-card"
-                key={guide.title}
+                key={guide.id}
               >
-                <div className="guide-card-icon">📘</div>
+                <div className="guide-card-icon">
+                  {guide.icon}
+                </div>
 
                 <div className="guide-card-content">
                   <span className="guide-label">
@@ -193,7 +199,10 @@ function Home({ setCurrentPage, openGuide }) {
                   <p>{guide.description}</p>
 
                   <div className="guide-details">
-                    <span>Difficulty: {guide.difficulty}</span>
+                    <span>
+                      Difficulty: {guide.difficulty}
+                    </span>
+
                     <span>{guide.time}</span>
                   </div>
 

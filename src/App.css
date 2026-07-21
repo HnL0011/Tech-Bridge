@@ -146,7 +146,7 @@
   color: var(--danger);
 }
 
-//* =========================
+/* =========================
    Login Page
 ========================= */
 
@@ -810,4 +810,16 @@
     align-items: flex-start;
     flex-direction: column;
   }
+}
+.feedback-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.feedback-message p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
 }

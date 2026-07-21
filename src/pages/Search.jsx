@@ -1,45 +1,27 @@
-import { useState } from "react";
+import guides from "../data/guides";
 
-function Search({ setCurrentPage, openGuide }) {
-  const [searchText, setSearchText] = useState("");
-
-  const guides = [
-    {
-      title: "Connect to Wi-Fi",
-      description:
-        "Connect your phone, tablet, or computer to a wireless network.",
-      difficulty: "Easy",
-      time: "3 minutes",
-    },
-    {
-      title: "Print from an iPhone",
-      description:
-        "Print photos and documents with an AirPrint-compatible printer.",
-      difficulty: "Easy",
-      time: "5 minutes",
-    },
-    {
-      title: "Reset a Forgotten Password",
-      description:
-        "Follow safe steps to recover access to an online account.",
-      difficulty: "Medium",
-      time: "8 minutes",
-    },
-    {
-      title: "Make Text Larger",
-      description:
-        "Increase text size on a phone or computer for easier reading.",
-      difficulty: "Easy",
-      time: "4 minutes",
-    },
-  ];
-
+function Search({
+  setCurrentPage,
+  openGuide,
+  searchQuery,
+  setSearchQuery,
+}) {
   const filteredGuides = guides.filter((guide) => {
-    const searchableText =
-      `${guide.title} ${guide.description}`.toLowerCase();
+    const searchableText = `
+      ${guide.title}
+      ${guide.description}
+      ${guide.category}
+      ${guide.difficulty}
+    `.toLowerCase();
 
-    return searchableText.includes(searchText.toLowerCase());
+    return searchableText.includes(
+      searchQuery.trim().toLowerCase(),
+    );
   });
+
+  function clearSearch() {
+    setSearchQuery("");
+  }
 
   return (
     <div className="page">
@@ -87,7 +69,10 @@ function Search({ setCurrentPage, openGuide }) {
 
       <main className="page-content">
         <section className="page-title-section">
-          <p className="eyebrow">Technology help library</p>
+          <p className="eyebrow">
+            Technology help library
+          </p>
+
           <h1>Search Guides</h1>
 
           <p>
@@ -106,15 +91,28 @@ function Search({ setCurrentPage, openGuide }) {
               id="guide-search"
               type="search"
               placeholder="Example: connect my laptop to Wi-Fi"
-              value={searchText}
+              value={searchQuery}
               onChange={(event) =>
-                setSearchText(event.target.value)
+                setSearchQuery(event.target.value)
               }
             />
 
-            <button type="button" className="primary-button">
-              Search
-            </button>
+            {searchQuery ? (
+              <button
+                type="button"
+                className="secondary-button"
+                onClick={clearSearch}
+              >
+                Clear
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="primary-button"
+              >
+                Search
+              </button>
+            )}
           </div>
         </section>
 
@@ -124,6 +122,7 @@ function Search({ setCurrentPage, openGuide }) {
               <p className="eyebrow">
                 {filteredGuides.length} guides found
               </p>
+
               <h2>Search Results</h2>
             </div>
           </div>
@@ -133,20 +132,22 @@ function Search({ setCurrentPage, openGuide }) {
               filteredGuides.map((guide) => (
                 <article
                   className="search-result-card"
-                  key={guide.title}
+                  key={guide.id}
                 >
                   <div>
                     <span className="guide-label">
-                      Technology Guide
+                      {guide.category} Guide
                     </span>
 
                     <h3>{guide.title}</h3>
+
                     <p>{guide.description}</p>
 
                     <div className="guide-details">
                       <span>
                         Difficulty: {guide.difficulty}
                       </span>
+
                       <span>{guide.time}</span>
                     </div>
                   </div>
@@ -168,6 +169,14 @@ function Search({ setCurrentPage, openGuide }) {
                   Try using a shorter search, such as
                   Wi-Fi, printer, phone, or password.
                 </p>
+
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={clearSearch}
+                >
+                  Show All Guides
+                </button>
               </div>
             )}
           </div>

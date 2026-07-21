@@ -1,11 +1,7 @@
+import guides from "../data/guides";
+
 function Profile({ setCurrentPage, openGuide }) {
-  const favoriteGuide = {
-    title: "Connect to Wi-Fi",
-    description:
-      "Connect your phone, tablet, or computer to a wireless network.",
-    difficulty: "Easy",
-    time: "3 minutes",
-  };
+  const favoriteGuide = guides[0];
 
   return (
     <div className="page">
@@ -56,8 +52,12 @@ function Profile({ setCurrentPage, openGuide }) {
           <div className="profile-avatar">H</div>
 
           <div>
-            <p className="eyebrow">Your TechBridge account</p>
+            <p className="eyebrow">
+              Your TechBridge account
+            </p>
+
             <h1>Hunter</h1>
+
             <p>hunter@example.com</p>
           </div>
         </section>
@@ -68,8 +68,12 @@ function Profile({ setCurrentPage, openGuide }) {
 
             <article className="favorite-guide">
               <div>
-                <span className="guide-label">Saved Guide</span>
+                <span className="guide-label">
+                  Saved Guide
+                </span>
+
                 <h3>{favoriteGuide.title}</h3>
+
                 <p>{favoriteGuide.description}</p>
               </div>
 
@@ -89,7 +93,10 @@ function Profile({ setCurrentPage, openGuide }) {
             <div className="setting-row">
               <div>
                 <strong>Larger Text</strong>
-                <p>Make the application easier to read.</p>
+
+                <p>
+                  Make the application easier to read.
+                </p>
               </div>
 
               <input
@@ -101,7 +108,10 @@ function Profile({ setCurrentPage, openGuide }) {
             <div className="setting-row">
               <div>
                 <strong>Email Notifications</strong>
-                <p>Receive updates about new guides.</p>
+
+                <p>
+                  Receive updates about new guides.
+                </p>
               </div>
 
               <input
