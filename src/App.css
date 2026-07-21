@@ -823,3 +823,55 @@
   color: var(--muted);
   line-height: 1.6;
 }
+/* =========================
+   Search Device Filters
+========================= */
+
+.device-filter-area {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.device-filter-label {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-weight: bold;
+}
+
+.device-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-panel label {
+  display: block;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.search-panel input {
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background-color: white;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.search-panel input:focus {
+  outline: 3px solid rgba(37, 99, 235, 0.14);
+  border-color: var(--primary);
+}
+
+@media (max-width: 560px) {
+  .device-filter-buttons {
+    flex-direction: column;
+  }
+
+  .device-filter-buttons button {
+    width: 100%;
+  }
+}

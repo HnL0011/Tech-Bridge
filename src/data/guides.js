@@ -1,150 +1,443 @@
 const guides = [
+  // =========================
+  // IPHONE GUIDES
+  // =========================
+
   {
-    id: 1,
-    title: "Connect to Wi-Fi",
-    description:
-      "Learn how to connect a phone, tablet, or computer to a wireless network.",
-    category: "Wi-Fi",
-    difficulty: "Easy",
-    time: "3 minutes",
-    icon: "🌐",
+    id: "iphone-connect-wifi",
+    title: "Connect an iPhone to Wi-Fi",
+    description: "Connect your iPhone to a home, work, or public Wi-Fi network.",
+    category: "iPhone",
+    device: "iPhone",
+    difficulty: "Beginner",
+    estimatedTime: "2 minutes",
+    icon: "📱",
     steps: [
-      {
-        title: "Open your device settings",
-        description:
-          "Find and open the Settings application on your phone, tablet, or computer.",
-      },
-      {
-        title: "Find the Wi-Fi settings",
-        description:
-          "Select Wi-Fi, Network, or Internet from the available settings.",
-      },
-      {
-        title: "Select your network",
-        description:
-          "Choose your Wi-Fi network name from the list of available networks.",
-      },
-      {
-        title: "Enter the password",
-        description:
-          "Type the Wi-Fi password and select Connect. Your device should confirm that it is connected.",
-      },
+      "Open the Settings app on your iPhone.",
+      "Tap Wi-Fi.",
+      "Make sure the Wi-Fi switch is turned on.",
+      "Wait for available networks to appear.",
+      "Tap the name of the Wi-Fi network you want to use.",
+      "Enter the Wi-Fi password.",
+      "Tap Join.",
+      "Look for a checkmark next to the network name to confirm you are connected.",
     ],
   },
+
   {
-    id: 2,
-    title: "Print from an iPhone",
-    description:
-      "Use AirPrint to print photos and documents from your iPhone.",
-    category: "Printers",
-    difficulty: "Easy",
-    time: "5 minutes",
+    id: "iphone-take-screenshot",
+    title: "Take a Screenshot on an iPhone",
+    description: "Save a picture of what is currently displayed on your iPhone screen.",
+    category: "iPhone",
+    device: "iPhone",
+    difficulty: "Beginner",
+    estimatedTime: "1 minute",
+    icon: "📸",
+    steps: [
+      "Open the screen you want to capture.",
+      "If your iPhone does not have a Home button, press the Side button and Volume Up button at the same time.",
+      "If your iPhone has a Home button, press the Home button and Side or Top button at the same time.",
+      "Quickly release both buttons.",
+      "A small preview will appear in the bottom-left corner.",
+      "Tap the preview to edit or share the screenshot.",
+      "The screenshot is automatically saved in the Photos app.",
+    ],
+  },
+
+  {
+    id: "iphone-make-text-larger",
+    title: "Make Text Larger on an iPhone",
+    description: "Increase the text size to make your iPhone easier to read.",
+    category: "iPhone",
+    device: "iPhone",
+    difficulty: "Beginner",
+    estimatedTime: "3 minutes",
+    icon: "🔠",
+    steps: [
+      "Open the Settings app.",
+      "Tap Display & Brightness.",
+      "Tap Text Size.",
+      "Move the slider to the right to make the text larger.",
+      "For additional sizes, return to the main Settings screen.",
+      "Tap Accessibility.",
+      "Tap Display & Text Size.",
+      "Tap Larger Text.",
+      "Turn on Larger Accessibility Sizes.",
+      "Move the slider until the text is comfortable to read.",
+    ],
+  },
+
+  {
+    id: "iphone-turn-on-bluetooth",
+    title: "Turn On Bluetooth on an iPhone",
+    description: "Turn on Bluetooth so your iPhone can connect to wireless devices.",
+    category: "iPhone",
+    device: "iPhone",
+    difficulty: "Beginner",
+    estimatedTime: "2 minutes",
+    icon: "🔵",
+    steps: [
+      "Open the Settings app.",
+      "Tap Bluetooth.",
+      "Tap the switch next to Bluetooth to turn it on.",
+      "Wait for nearby Bluetooth devices to appear.",
+      "Tap the name of the device you want to connect.",
+      "Follow any additional instructions shown on the screen.",
+    ],
+  },
+
+  {
+    id: "iphone-update-ios",
+    title: "Update an iPhone",
+    description: "Check for and install the newest available iPhone software update.",
+    category: "iPhone",
+    device: "iPhone",
+    difficulty: "Beginner",
+    estimatedTime: "15 minutes",
+    icon: "⬆️",
+    steps: [
+      "Connect your iPhone to Wi-Fi.",
+      "Connect the iPhone to a charger or make sure the battery is above 50 percent.",
+      "Open the Settings app.",
+      "Tap General.",
+      "Tap Software Update.",
+      "Wait while the iPhone checks for an update.",
+      "Tap Update Now or Download and Install.",
+      "Enter your passcode if requested.",
+      "Keep the iPhone connected to power while the update installs.",
+    ],
+  },
+
+  {
+    id: "iphone-free-storage",
+    title: "Check Storage on an iPhone",
+    description: "See what is using your iPhone storage and remove items you no longer need.",
+    category: "iPhone",
+    device: "iPhone",
+    difficulty: "Beginner",
+    estimatedTime: "5 minutes",
+    icon: "🗂️",
+    steps: [
+      "Open the Settings app.",
+      "Tap General.",
+      "Tap iPhone Storage.",
+      "Wait for the storage information to load.",
+      "Review which apps are using the most storage.",
+      "Tap an app to view its storage options.",
+      "Choose Offload App to remove the app but keep its documents and data.",
+      "Choose Delete App only when you want to remove the app and its stored data.",
+      "Open the Photos app separately to remove unwanted photos or videos.",
+    ],
+  },
+
+  // =========================
+  // ANDROID GUIDES
+  // =========================
+
+  {
+    id: "android-connect-wifi",
+    title: "Connect an Android Phone to Wi-Fi",
+    description: "Connect your Android phone to a wireless internet network.",
+    category: "Android",
+    device: "Android",
+    difficulty: "Beginner",
+    estimatedTime: "2 minutes",
+    icon: "🤖",
+    steps: [
+      "Open the Settings app.",
+      "Tap Connections, Network & Internet, or Wi-Fi.",
+      "The exact wording may be different depending on your phone.",
+      "Turn Wi-Fi on.",
+      "Wait for available networks to appear.",
+      "Tap the network you want to join.",
+      "Enter the Wi-Fi password.",
+      "Tap Connect.",
+      "Wait for the phone to show that it is connected.",
+    ],
+  },
+
+  {
+    id: "android-take-screenshot",
+    title: "Take a Screenshot on an Android Phone",
+    description: "Save a picture of what is displayed on your Android screen.",
+    category: "Android",
+    device: "Android",
+    difficulty: "Beginner",
+    estimatedTime: "1 minute",
+    icon: "📸",
+    steps: [
+      "Open the screen you want to capture.",
+      "Press the Power button and Volume Down button at the same time.",
+      "Quickly release both buttons.",
+      "A screenshot preview should appear.",
+      "Tap the preview if you want to edit or share it.",
+      "The screenshot is automatically saved in the Photos or Gallery app.",
+      "Some Android phones may also allow screenshots from the quick settings menu.",
+    ],
+  },
+
+  {
+    id: "android-make-text-larger",
+    title: "Make Text Larger on an Android Phone",
+    description: "Increase the font size to make your Android phone easier to read.",
+    category: "Android",
+    device: "Android",
+    difficulty: "Beginner",
+    estimatedTime: "3 minutes",
+    icon: "🔠",
+    steps: [
+      "Open the Settings app.",
+      "Tap Display.",
+      "Tap Font size and style or Display size and text.",
+      "Move the Font Size slider to the right.",
+      "Review the sample text shown on the screen.",
+      "Adjust the Display Size setting if you also want buttons and icons to appear larger.",
+      "Return to the Home screen when the size is comfortable.",
+    ],
+  },
+
+  {
+    id: "android-turn-on-bluetooth",
+    title: "Turn On Bluetooth on an Android Phone",
+    description: "Turn on Bluetooth and connect your Android phone to another device.",
+    category: "Android",
+    device: "Android",
+    difficulty: "Beginner",
+    estimatedTime: "3 minutes",
+    icon: "🔵",
+    steps: [
+      "Open the Settings app.",
+      "Tap Connections, Connected Devices, or Bluetooth.",
+      "Turn Bluetooth on.",
+      "Place the accessory you want to connect into pairing mode.",
+      "Tap Pair New Device or Scan.",
+      "Tap the name of the device.",
+      "Tap Pair or Connect.",
+      "Follow any additional instructions shown on the phone.",
+    ],
+  },
+
+  {
+    id: "android-update-phone",
+    title: "Update an Android Phone",
+    description: "Check for and install available Android software updates.",
+    category: "Android",
+    device: "Android",
+    difficulty: "Beginner",
+    estimatedTime: "15 minutes",
+    icon: "⬆️",
+    steps: [
+      "Connect the phone to Wi-Fi.",
+      "Connect the phone to a charger or make sure the battery is above 50 percent.",
+      "Open the Settings app.",
+      "Scroll down and tap Software Update or System.",
+      "Tap Download and Install, System Update, or Check for Updates.",
+      "Wait while the phone checks for an update.",
+      "Follow the instructions shown on the screen.",
+      "Allow the phone to restart if required.",
+    ],
+  },
+
+  {
+    id: "android-free-storage",
+    title: "Check Storage on an Android Phone",
+    description: "Find large apps and files that may be using too much phone storage.",
+    category: "Android",
+    device: "Android",
+    difficulty: "Beginner",
+    estimatedTime: "5 minutes",
+    icon: "🗂️",
+    steps: [
+      "Open the Settings app.",
+      "Tap Storage or Battery and Device Care.",
+      "Wait for the storage information to load.",
+      "Review the categories using the most storage.",
+      "Tap Apps to review installed applications.",
+      "Uninstall apps you no longer use.",
+      "Open the Files or My Files app to review downloads.",
+      "Delete only files that you recognize and no longer need.",
+      "Empty the Trash or Recycle Bin inside the Gallery or Files app if available.",
+    ],
+  },
+
+  // =========================
+  // WINDOWS COMPUTER GUIDES
+  // =========================
+
+  {
+    id: "windows-connect-wifi",
+    title: "Connect a Windows Computer to Wi-Fi",
+    description: "Connect a Windows laptop or desktop computer to a wireless network.",
+    category: "Windows",
+    device: "Windows Computer",
+    difficulty: "Beginner",
+    estimatedTime: "3 minutes",
+    icon: "💻",
+    steps: [
+      "Click the network, sound, or battery area in the bottom-right corner of the screen.",
+      "Click the Wi-Fi button if Wi-Fi is turned off.",
+      "Click the arrow next to Wi-Fi to view available networks.",
+      "Select the Wi-Fi network you want to use.",
+      "Click Connect.",
+      "Enter the Wi-Fi password.",
+      "Click Next.",
+      "Wait for Windows to show that the computer is connected.",
+    ],
+  },
+
+  {
+    id: "windows-take-screenshot",
+    title: "Take a Screenshot on a Windows Computer",
+    description: "Capture all or part of your Windows computer screen.",
+    category: "Windows",
+    device: "Windows Computer",
+    difficulty: "Beginner",
+    estimatedTime: "2 minutes",
+    icon: "📸",
+    steps: [
+      "Open the screen you want to capture.",
+      "Press the Windows key, Shift key, and S key at the same time.",
+      "The screen will become slightly darker.",
+      "Click and drag around the area you want to capture.",
+      "Release the mouse button.",
+      "Click the notification that appears in the bottom-right corner.",
+      "Click the Save button.",
+      "Choose a folder and enter a name for the screenshot.",
+    ],
+  },
+
+  {
+    id: "windows-make-text-larger",
+    title: "Make Text Larger on a Windows Computer",
+    description: "Increase the size of text, icons, and applications on Windows.",
+    category: "Windows",
+    device: "Windows Computer",
+    difficulty: "Beginner",
+    estimatedTime: "3 minutes",
+    icon: "🔠",
+    steps: [
+      "Click the Start button.",
+      "Open Settings.",
+      "Click Accessibility.",
+      "Click Text Size.",
+      "Move the slider to the right.",
+      "Click Apply.",
+      "To make apps and icons larger, return to Settings.",
+      "Click System.",
+      "Click Display.",
+      "Change the Scale setting to a larger percentage.",
+    ],
+  },
+
+  {
+    id: "windows-connect-bluetooth",
+    title: "Connect a Bluetooth Device to Windows",
+    description: "Pair Bluetooth headphones, speakers, mice, or keyboards with Windows.",
+    category: "Windows",
+    device: "Windows Computer",
+    difficulty: "Beginner",
+    estimatedTime: "4 minutes",
+    icon: "🔵",
+    steps: [
+      "Turn on the Bluetooth device.",
+      "Place the device into pairing mode.",
+      "Click the Start button.",
+      "Open Settings.",
+      "Click Bluetooth & devices.",
+      "Turn Bluetooth on.",
+      "Click Add device.",
+      "Select Bluetooth.",
+      "Click the name of the device you want to connect.",
+      "Follow any additional instructions shown on the screen.",
+    ],
+  },
+
+  {
+    id: "windows-install-updates",
+    title: "Install Windows Updates",
+    description: "Check for important Windows security and system updates.",
+    category: "Windows",
+    device: "Windows Computer",
+    difficulty: "Beginner",
+    estimatedTime: "15 minutes",
+    icon: "⬆️",
+    steps: [
+      "Save your work and close important programs.",
+      "Connect a laptop to its charger.",
+      "Click the Start button.",
+      "Open Settings.",
+      "Click Windows Update.",
+      "Click Check for updates.",
+      "Allow available updates to download and install.",
+      "Click Restart now if Windows asks you to restart.",
+      "Do not turn off the computer while updates are installing.",
+    ],
+  },
+
+  {
+    id: "windows-connect-printer",
+    title: "Connect a Printer to a Windows Computer",
+    description: "Add a wired or wireless printer to a Windows computer.",
+    category: "Windows",
+    device: "Windows Computer",
+    difficulty: "Beginner",
+    estimatedTime: "7 minutes",
     icon: "🖨️",
     steps: [
-      {
-        title: "Check the printer connection",
-        description:
-          "Make sure your printer is turned on and connected to the same Wi-Fi network as your iPhone.",
-      },
-      {
-        title: "Open the item you want to print",
-        description:
-          "Open the photo, webpage, email, or document you want to print.",
-      },
-      {
-        title: "Open the sharing menu",
-        description:
-          "Tap the Share button. It normally looks like a square with an arrow pointing upward.",
-      },
-      {
-        title: "Select Print",
-        description:
-          "Scroll through the sharing options and tap Print.",
-      },
-      {
-        title: "Choose your printer",
-        description:
-          "Tap Select Printer and choose your AirPrint-compatible printer.",
-      },
-      {
-        title: "Start printing",
-        description:
-          "Choose the number of copies and other options, then tap Print.",
-      },
+      "Turn on the printer.",
+      "Make sure the printer has paper and ink or toner.",
+      "For a wireless printer, connect the printer to the same Wi-Fi network as the computer.",
+      "Click the Start button on the computer.",
+      "Open Settings.",
+      "Click Bluetooth & devices.",
+      "Click Printers & scanners.",
+      "Click Add device.",
+      "Wait for the printer's name to appear.",
+      "Click Add device next to the printer.",
+      "Print a test page to confirm the printer works.",
     ],
   },
+
   {
-    id: 3,
-    title: "Reset a Forgotten Password",
-    description:
-      "Follow safe steps to recover access to an online account.",
-    category: "Accounts",
-    difficulty: "Medium",
-    time: "8 minutes",
-    icon: "🔐",
+    id: "windows-uninstall-program",
+    title: "Uninstall a Program on Windows",
+    description: "Remove a program that you no longer need from your computer.",
+    category: "Windows",
+    device: "Windows Computer",
+    difficulty: "Beginner",
+    estimatedTime: "4 minutes",
+    icon: "🗑️",
     steps: [
-      {
-        title: "Open the official sign-in page",
-        description:
-          "Go directly to the official website or application for the account.",
-      },
-      {
-        title: "Select Forgot Password",
-        description:
-          "Look for a link labeled Forgot Password, Reset Password, or Trouble Signing In.",
-      },
-      {
-        title: "Enter your account information",
-        description:
-          "Enter the email address, phone number, or username connected to the account.",
-      },
-      {
-        title: "Check for a verification message",
-        description:
-          "Look for a verification code or password reset link in your email or text messages.",
-      },
-      {
-        title: "Create a new password",
-        description:
-          "Choose a strong password that you have not used for another account.",
-      },
+      "Click the Start button.",
+      "Open Settings.",
+      "Click Apps.",
+      "Click Installed apps.",
+      "Find the program you want to remove.",
+      "Click the three dots next to the program.",
+      "Click Uninstall.",
+      "Click Uninstall again if asked.",
+      "Follow any additional removal instructions.",
+      "Restart the computer if the program asks you to.",
     ],
   },
+
   {
-    id: 4,
-    title: "Make Text Larger",
-    description:
-      "Increase text size on a phone or computer for easier reading.",
-    category: "Accessibility",
-    difficulty: "Easy",
-    time: "4 minutes",
-    icon: "🔎",
+    id: "windows-find-device-information",
+    title: "Find Your Windows Computer Information",
+    description: "Find your computer model, Windows version, processor, and memory.",
+    category: "Windows",
+    device: "Windows Computer",
+    difficulty: "Beginner",
+    estimatedTime: "3 minutes",
+    icon: "ℹ️",
     steps: [
-      {
-        title: "Open Settings",
-        description:
-          "Open the Settings application on your phone, tablet, or computer.",
-      },
-      {
-        title: "Find display options",
-        description:
-          "Select Display, Accessibility, Ease of Access, or a similar option.",
-      },
-      {
-        title: "Find text size",
-        description:
-          "Look for Text Size, Font Size, Display Size, or Scale.",
-      },
-      {
-        title: "Increase the size",
-        description:
-          "Move the slider or choose a larger percentage until the text is comfortable to read.",
-      },
-      {
-        title: "Review the change",
-        description:
-          "Open another application or webpage to make sure the new text size works well.",
-      },
+      "Click the Start button.",
+      "Open Settings.",
+      "Click System.",
+      "Scroll down and click About.",
+      "Look under Device Specifications for the computer name, processor, and installed memory.",
+      "Look under Windows Specifications for the Windows edition and version.",
+      "Write down or take a screenshot of the information if you need technical support.",
     ],
   },
 ];
