@@ -3,35 +3,79 @@ import "./App.css";
 
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Search from "./pages/Search";
+import Guide from "./pages/Guide";
 import Profile from "./pages/Profile";
 
 function App() {
-  // Controls which screen is currently displayed
   const [currentPage, setCurrentPage] = useState("login");
 
-  // Login screen
+  const [selectedGuide, setSelectedGuide] = useState({
+    title: "Connect to Wi-Fi",
+    description:
+      "Follow these simple steps to connect your device to a wireless network.",
+    difficulty: "Easy",
+    time: "3 minutes",
+  });
+
+  function openGuide(guide) {
+    setSelectedGuide(guide);
+    setCurrentPage("guide");
+  }
+
   if (currentPage === "login") {
     return <Login setCurrentPage={setCurrentPage} />;
   }
 
-  // Home screen
   if (currentPage === "home") {
-    return <Home setCurrentPage={setCurrentPage} />;
+    return (
+      <Home
+        setCurrentPage={setCurrentPage}
+        openGuide={openGuide}
+      />
+    );
   }
 
-  // Profile Screen
+  if (currentPage === "search") {
+    return (
+      <Search
+        setCurrentPage={setCurrentPage}
+        openGuide={openGuide}
+      />
+    );
+  }
+
+  if (currentPage === "guide") {
+    return (
+      <Guide
+        guide={selectedGuide}
+        setCurrentPage={setCurrentPage}
+      />
+    );
+  }
+
   if (currentPage === "profile") {
-    return <Profile setCurrentPage={setCurrentPage} />;
+    return (
+      <Profile
+        setCurrentPage={setCurrentPage}
+        openGuide={openGuide}
+      />
+    );
   }
 
-  // Backup screen in case the page name is incorrect
   return (
-    <div className="app">
-      <h1>Page not found</h1>
+    <div className="centered-page">
+      <div className="message-card">
+        <h1>Page Not Found</h1>
 
-      <button onClick={() => setCurrentPage("login")}>
-        Return to Login
-      </button>
+        <button
+          type="button"
+          className="primary-button"
+          onClick={() => setCurrentPage("login")}
+        >
+          Return to Login
+        </button>
+      </div>
     </div>
   );
 }

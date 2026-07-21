@@ -1,86 +1,813 @@
-/* ============================App Layout============================ */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #eef3f8;
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #eff6ff;
+  --background: #f3f6fa;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #dbe3ec;
+  --danger: #dc2626;
+  --shadow: 0 10px 30px rgba(31, 41, 55, 0.08);
 }
 
-.app {
+/* =========================
+   Shared Elements
+========================= */
+
+.page {
+  width: 100%;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: var(--background);
 }
-/* ============================ Login Card============================ */
 
-.login-card {
-  width: 90%;
-  max-width: 390px;
-  background: white;
+.page-content {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+  padding: 56px 0 80px;
+}
+
+.content-section {
+  margin-top: 64px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.primary-button {
+  border: none;
+  border-radius: 10px;
+  padding: 13px 20px;
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+}
+
+.primary-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.secondary-button {
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  padding: 12px 18px;
+  background-color: white;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.secondary-button:hover {
+  background-color: var(--primary-light);
+}
+
+.text-button {
+  border: none;
+  padding: 12px;
+  background-color: transparent;
+  color: var(--muted);
+}
+
+.text-button:hover {
+  color: var(--primary);
+}
+
+.link-button {
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.centered-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.message-card {
   padding: 32px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  background-color: white;
+  box-shadow: var(--shadow);
   text-align: center;
 }
 
-.login-card h1 {
+/* =========================
+   Header
+========================= */
+
+.site-header {
+  width: 100%;
+  min-height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 6%;
+  background-color: white;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo-button {
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.top-navigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-navigation button {
+  border: none;
+  border-radius: 9px;
+  padding: 10px 14px;
+  background-color: transparent;
+  color: #4b5563;
+}
+
+.top-navigation button:hover,
+.top-navigation .active-nav-button {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.top-navigation .logout-button {
+  color: var(--danger);
+}
+
+//* =========================
+   Login Page
+========================= */
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+  background:
+    linear-gradient(
+      135deg,
+      #e8f2ff,
+      #f8fbff
+    );
+}
+
+.login-card {
+  width: min(520px, 100%);
+  padding: 48px;
+  border-radius: 28px;
+  background-color: white;
+  box-shadow: 0 16px 45px rgba(37, 99, 235, 0.12);
+  text-align: center;
+}
+
+.login-logo {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 18px;
+  object-fit: contain;
+}
+
+.app-title {
+  margin: 0;
   color: #2563eb;
-  margin-bottom: 8px;
+  font-size: 46px;
+  font-weight: 700;
 }
 
-.login-card p {
-  color: #6b7280;
-  margin-bottom: 28px;
+.login-description {
+  margin: 14px 0 34px;
+  color: #64748b;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-form {
+.login-card form {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
 
-label {
-  margin-bottom: 6px;
+.login-card label {
+  margin-bottom: 7px;
+  color: #1f2937;
   font-weight: bold;
-  color: #374151;
 }
 
-input {
-  padding: 14px;
-  margin-bottom: 18px;
-  border: 1px solid #d1d5db;
-  border-radius: 12px;
+.login-card input {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 15px;
+  background-color: white;
   font-size: 16px;
 }
-/* ============================Buttons============================ */
 
-button {
-  padding: 14px;
+.login-card input:focus {
+  outline: 3px solid rgba(37, 99, 235, 0.15);
+  border-color: #2563eb;
+}
+
+.login-card .primary-button {
+  width: 100%;
+  margin-top: 6px;
+  padding: 17px;
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-form button {
+  border-radius: 15px;
   background-color: #2563eb;
   color: white;
+  font-size: 18px;
   font-weight: bold;
-  margin-top: 8px;
 }
 
-.secondary-button {
+.login-card .primary-button:hover {
+  background-color: #1d4ed8;
+}
+
+.form-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 26px 0;
+  color: #64748b;
+}
+
+.form-divider::before,
+.form-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #dbe3ec;
+}
+
+.login-card .secondary-button {
   width: 100%;
-  margin-top: 14px;
-  background: white;
+  margin: 0;
+  padding: 16px;
+  border: 2px solid #2563eb;
+  border-radius: 15px;
+  background-color: white;
   color: #2563eb;
-  border: 1px solid #2563eb;
+  font-size: 17px;
   font-weight: bold;
 }
 
-.guest-button {
+.login-card .secondary-button:hover {
+  background-color: #eff6ff;
+}
+
+.login-card .text-button {
   width: 100%;
   margin-top: 12px;
+  padding: 13px;
+  border: none;
+  background-color: transparent;
+  color: #64748b;
+  font-size: 16px;
+}
+
+.login-card .text-button:hover {
+  color: #2563eb;
+}
+
+@media (max-width: 560px) {
+  .login-card {
+    padding: 32px 22px;
+    border-radius: 22px;
+  }
+
+  .login-logo {
+    width: 115px;
+    height: 115px;
+  }
+
+  .app-title {
+    font-size: 38px;
+  }
+
+  .login-description {
+    font-size: 16px;
+  }
+}
+/* =========================
+   Home
+========================= */
+
+.hero-section {
+  padding: 64px 40px;
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #eaf2ff
+    );
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.hero-section h1 {
+  max-width: 700px;
+  margin: 0 auto 16px;
+  font-size: clamp(36px, 5vw, 54px);
+  line-height: 1.1;
+}
+
+.hero-section > p:not(.eyebrow) {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.home-search-bar {
+  max-width: 700px;
+  display: flex;
+  gap: 12px;
+  margin: 32px auto 0;
+}
+
+.home-search-bar input {
+  flex: 1;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.category-card {
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background-color: white;
+  color: var(--text);
+  box-shadow: 0 4px 14px rgba(31, 41, 55, 0.05);
+  text-align: left;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.category-icon {
+  font-size: 34px;
+}
+
+.category-card > span:nth-child(2) {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.category-card small {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.guide-card {
+  display: flex;
+  gap: 18px;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background-color: white;
+  box-shadow: 0 4px 14px rgba(31, 41, 55, 0.05);
+}
+
+.guide-card-icon {
+  font-size: 34px;
+}
+
+.guide-card-content {
+  flex: 1;
+}
+
+.guide-label {
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.guide-card h3,
+.search-result-card h3,
+.favorite-guide h3 {
+  margin: 8px 0;
+  font-size: 22px;
+}
+
+.guide-card p,
+.search-result-card p,
+.favorite-guide p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.guide-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 18px 0;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+/* =========================
+   Search
+========================= */
+
+.page-title-section {
+  max-width: 760px;
+}
+
+.page-title-section h1 {
+  margin: 0 0 12px;
+  font-size: 44px;
+}
+
+.page-title-section > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.search-panel {
+  margin-top: 32px;
+  padding: 28px;
+  border-radius: 18px;
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.search-input-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.search-input-row input {
+  flex: 1;
+}
+
+.search-results {
+  display: grid;
+  gap: 16px;
+}
+
+.search-result-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background-color: white;
+}
+
+.search-result-card > div {
+  flex: 1;
+}
+
+.empty-state {
+  padding: 50px;
+  border-radius: 18px;
+  background-color: white;
+  text-align: center;
+}
+
+/* =========================
+   Guide Details
+========================= */
+
+.guide-page-content {
+  width: min(900px, 90%);
+  margin: 0 auto;
+  padding: 42px 0 80px;
+}
+
+.back-button {
+  margin-bottom: 20px;
+  border: none;
   background: transparent;
-  color: #6b7280;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.guide-detail-card {
+  overflow: hidden;
+  border-radius: 22px;
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.guide-detail-header {
+  padding: 42px;
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #ffffff
+    );
+}
+
+.guide-detail-header h1 {
+  margin: 10px 0 14px;
+  font-size: 42px;
+}
+
+.guide-detail-header > p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.guide-information {
+  display: flex;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.guide-information div {
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: white;
+}
+
+.guide-information span {
+  color: var(--muted);
+}
+
+.steps-list {
+  display: grid;
+  gap: 18px;
+  padding: 38px 42px;
+}
+
+.step-card {
+  display: flex;
+  gap: 20px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
+.step-number {
+  min-width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.step-card h2 {
+  margin: 0 0 8px;
+  font-size: 21px;
+}
+
+.step-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.helpful-section {
+  padding: 30px 42px 42px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.helpful-section div {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* =========================
+   Profile
+========================= */
+
+.profile-header-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.profile-avatar {
+  width: 86px;
+  height: 86px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.profile-header-card h1 {
+  margin: 0 0 6px;
+  font-size: 34px;
+}
+
+.profile-header-card p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.profile-card {
+  padding: 28px;
+  border-radius: 18px;
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.profile-card h2 {
+  margin-top: 0;
+}
+
+.favorite-guide {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.setting-row p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.setting-row input {
+  width: 22px;
+  height: 22px;
+}
+
+.logout-profile-button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 13px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background-color: #fff7f7;
+  color: var(--danger);
+  font-weight: bold;
+}
+
+/* =========================
+   Responsive Layout
+========================= */
+
+@media (max-width: 800px) {
+  .site-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .top-navigation {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .guide-grid,
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-result-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-content {
+    width: 92%;
+    padding-top: 32px;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+  }
+
+  .hero-section {
+    padding: 42px 20px;
+  }
+
+  .home-search-bar,
+  .search-input-row {
+    flex-direction: column;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-card {
+    flex-direction: column;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .guide-detail-header,
+  .steps-list,
+  .helpful-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .guide-detail-header h1 {
+    font-size: 34px;
+  }
+
+  .guide-information {
+    flex-direction: column;
+  }
+
+  .step-card {
+    flex-direction: column;
+  }
+
+  .profile-header-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
