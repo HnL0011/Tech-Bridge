@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Guide from "./pages/Guide";
 import Profile from "./pages/Profile";
+import AIChat from "./pages/AIChat";
 
 import guides from "./data/guides";
 
@@ -86,6 +87,13 @@ function App() {
       </div>
     </div>
   );
-}
+  return (
+  <>
+    {renderCurrentPage()}
 
+    <AIChat openSearch={openSearch} />
+  </>
+); 
+
+}
 export default App;
