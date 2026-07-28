@@ -17,6 +17,7 @@ function App() {
   const [favoriteGuideIds, setFavoriteGuideIds] = useState([]);
   const [largeText, setLargeText] = useState(false);
   const [highContrast, setHighContrast] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   function openSearch(query = "") {
     setSearchQuery(query);
@@ -47,7 +48,9 @@ function App() {
   function renderCurrentPage() {
     switch (currentPage) {
       case "login":
-        return <Login setCurrentPage={setCurrentPage} />;
+        return <Login setCurrentPage={setCurrentPage}
+        setCurrentUser={setCurrentUser}
+         />;
 
       case "home":
         return (
@@ -113,6 +116,7 @@ function App() {
             setLargeText={setLargeText}
             highContrast={highContrast}
             setHighContrast={setHighContrast}
+            currentUser={currentUser}
           />
         );
 

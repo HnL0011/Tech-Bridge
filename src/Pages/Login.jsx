@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from "../assets/logo.png";
 
-function Login({ setCurrentPage }) {
+function Login({ setCurrentPage, setCurrentUser, }) {
   // Switches between Login and Create Account
   const [isCreatingAccount, setIsCreatingAccount] =
     useState(false);
@@ -26,24 +26,34 @@ function Login({ setCurrentPage }) {
 
   // Handles login and account creation
   function handleSubmit(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (
-      isCreatingAccount &&
-      formData.password !== formData.confirmPassword
-    ) {
-      alert("The passwords do not match.");
-      return;
-    }
-
-    if (isCreatingAccount) {
-      alert("Account created successfully!");
-    } else {
-      alert("Login successful!");
-    }
-
-    setCurrentPage("home");
+  if (
+    isCreatingAccount &&
+    formData.password !== formData.confirmPassword
+  ) {
+    alert("The passwords do not match.");
+    return;
   }
+
+  if (isCreatingAccount) {
+    setCurrentUser({
+      name: formData.name,
+      email: formData.email,
+    });
+
+    alert("Account created successfully!");
+  } else {
+    setCurrentUser({
+      name: formData.email.split("@")[0],
+      email: formData.email,
+    });
+
+    alert("Login successful!");
+  }
+
+  setCurrentPage("home");
+}
 
   // Switches between the login and account creation forms
   function switchForm() {
@@ -168,12 +178,19 @@ function Login({ setCurrentPage }) {
 
         {!isCreatingAccount && (
           <button
-            type="button"
-            className="text-button"
-            onClick={() => setCurrentPage("home")}
-          >
-            Continue as Guest
-          </button>
+  type="button"
+  className="text-button"
+  onClick={() => {
+    setCurrentUser({
+      name: "Guest User",
+      email: "",
+    });
+
+    setCurrentPage("home");
+  }}
+>
+  Continue as Guest
+</button>
         )}
       </section>
     </main>

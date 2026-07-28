@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Guide({ guide, setCurrentPage }) {
+function Guide({ guide, setCurrentPage, favoriteGuideIds, toggleFavorite }) {
   const [helpfulResponse, setHelpfulResponse] =
     useState("");
 
@@ -48,6 +48,16 @@ function Guide({ guide, setCurrentPage }) {
           >
             Log Out
           </button>
+
+          <button
+          type="button"
+          className="secondary-button"
+          onClick={() => toggleFavorite(guide.id)}
+        >
+          {favoriteGuideIds.includes(guide.id)
+            ? "★ Remove from Favorites"
+            : "☆ Add to Favorites"}
+        </button>
         </nav>
       </header>
 
@@ -78,7 +88,7 @@ function Guide({ guide, setCurrentPage }) {
 
               <div>
                 <strong>Estimated Time</strong>
-                <span>{guide.time}</span>
+                <span>{guide.estimatedTime || guide.time}</span>
               </div>
             </div>
           </div>

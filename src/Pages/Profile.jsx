@@ -1,15 +1,14 @@
-import guides from "../data/guides";
-
 function Profile({
   setCurrentPage,
   openGuide,
+  favoriteGuides,
+  toggleFavorite,
   largeText,
   setLargeText,
   highContrast,
   setHighContrast,
+  currentUser,
 }) {
-  const favoriteGuide = guides[0];
-
   return (
     <div className="page">
       <header className="site-header">
@@ -63,42 +62,83 @@ function Profile({
 
       <main className="page-content">
         <section className="profile-header-card">
-          <div className="profile-avatar">H</div>
+          <div className="profile-avatar">
+  {currentUser?.name
+    ? currentUser.name.charAt(0).toUpperCase()
+    : "G"}
+</div>
 
-          <div>
-            <p className="eyebrow">
-              Your TechBridge account
-            </p>
+<div>
+  <p className="eyebrow">
+    Your TechBridge account
+  </p>
 
-            <h1>Hunter</h1>
+  <h1>{currentUser?.name || "Guest User"}</h1>
 
-            <p>hunter@example.com</p>
-          </div>
+  <p>
+    {currentUser?.email || "Guest account"}
+  </p>
+</div>
         </section>
 
         <div className="profile-grid">
           <section className="profile-card">
             <h2>Favorite Guides</h2>
 
-            <article className="favorite-guide">
-              <div>
-                <span className="guide-label">
-                  Saved Guide
-                </span>
+            {favoriteGuides.length === 0 ? (
+              <div className="empty-favorites">
+                <p>
+                  You have not saved any guides yet.
+                </p>
 
-                <h3>{favoriteGuide.title}</h3>
-
-                <p>{favoriteGuide.description}</p>
+                <button
+                  type="button"
+                  className="primary-button"
+                  onClick={() => setCurrentPage("search")}
+                >
+                  Browse Guides
+                </button>
               </div>
+            ) : (
+              <div className="favorite-guides-list">
+                {favoriteGuides.map((guide) => (
+                  <article
+                    className="favorite-guide"
+                    key={guide.id}
+                  >
+                    <div>
+                      <span className="guide-label">
+                        Saved Guide
+                      </span>
 
-              <button
-                type="button"
-                className="primary-button"
-                onClick={() => openGuide(favoriteGuide)}
-              >
-                Read Guide
-              </button>
-            </article>
+                      <h3>{guide.title}</h3>
+
+                      <p>{guide.description}</p>
+                    </div>
+
+                    <div className="favorite-guide-actions">
+                      <button
+                        type="button"
+                        className="primary-button"
+                        onClick={() => openGuide(guide)}
+                      >
+                        Read Guide
+                      </button>
+
+                      <button
+                        type="button"
+                        className="secondary-button"
+                        onClick={() =>
+                          toggleFavorite(guide.id)
+                        }
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
           </section>
 
           <section className="profile-card">
@@ -132,7 +172,8 @@ function Profile({
                 <strong>High Contrast</strong>
 
                 <p>
-                  Increase contrast to make text and buttons easier to see.
+                  Increase contrast to make text and buttons
+                  easier to see.
                 </p>
               </div>
 
@@ -149,10 +190,6 @@ function Profile({
                 <span className="toggle-slider" />
               </span>
             </label>
-
-            
-
-            
 
             <button
               type="button"
