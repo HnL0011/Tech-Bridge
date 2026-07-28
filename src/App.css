@@ -824,6 +824,73 @@
   line-height: 1.6;
 }
 /* =========================
+   SUPPORT PAGE
+========================= */
+
+.support-contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 270px;
+  text-align: left;
+}
+
+.support-contact-card strong {
+  margin-top: 18px;
+  color: #2f63e9;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.support-contact-card small {
+  display: block;
+  margin-top: 7px;
+}
+
+.support-card-button {
+  margin-top: auto;
+}
+
+.support-faq-card {
+  min-height: 170px;
+}
+
+.support-notice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 30px;
+  border: 1px solid #dfe5ef;
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(31, 42, 68, 0.08);
+}
+
+.support-notice-card h2 {
+  margin: 5px 0 10px;
+}
+
+.support-notice-card p {
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+.support-bottom-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 700px) {
+  .support-bottom-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+/* =========================
    Search Device Filters
 ========================= */
 

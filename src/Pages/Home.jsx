@@ -43,6 +43,13 @@ function Home({
 
           <button
             type="button"
+            onClick={() => setCurrentPage("support")}
+          >
+            Support
+          </button>
+
+          <button
+            type="button"
             onClick={() => setCurrentPage("profile")}
           >
             Profile
@@ -154,6 +161,26 @@ function Home({
             <button
               type="button"
               className="category-card"
+              onClick={() => openSearch("security")}
+            >
+              <span className="category-icon">🛡️</span>
+              <span>Online Safety</span>
+              <small>Scams, passwords, and security</small>
+            </button>
+
+            <button
+              type="button"
+              className="category-card"
+              onClick={() => setCurrentPage("support")}
+            >
+              <span className="category-icon">🎧</span>
+              <span>Support</span>
+              <small>Contact the TechBridge team</small>
+            </button>
+
+            <button
+              type="button"
+              className="category-card"
               onClick={() => setCurrentPage("profile")}
             >
               <span className="category-icon">⭐</span>
@@ -203,7 +230,9 @@ function Home({
                       Difficulty: {guide.difficulty}
                     </span>
 
-                    <span>{guide.time}</span>
+                    <span>
+                      {guide.estimatedTime || guide.time}
+                    </span>
                   </div>
 
                   <button

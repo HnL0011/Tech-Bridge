@@ -6,7 +6,7 @@ import Home from "./Pages/Home";
 import Search from "./Pages/Search";
 import Guide from "./Pages/Guide";
 import Profile from "./Pages/Profile";
-import techBridgeSupport from "./data/support";
+
 import guides from "./data/guides";
 import Support from "./Pages/Support";
 
@@ -48,14 +48,15 @@ function App() {
         return <Login setCurrentPage={setCurrentPage} />;
 
       case "home":
-        return (
-          <Home
-            setCurrentPage={setCurrentPage}
-            openSearch={openSearch}
-            openGuide={openGuide}
-            guides={guides}
-          />
-        );
+       return (
+       <Home
+         setCurrentPage={setCurrentPage}
+         openSearch={openSearch}
+         openGuide={openGuide}
+        searchQuery={searchQuery}
+         setSearchQuery={setSearchQuery}
+    />
+  );
 
       case "search":
         return (
