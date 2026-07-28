@@ -6,8 +6,9 @@ import Home from "./Pages/Home";
 import Search from "./Pages/Search";
 import Guide from "./Pages/Guide";
 import Profile from "./Pages/Profile";
-
+import techBridgeSupport from "./data/support";
 import guides from "./data/guides";
+import Support from "./Pages/Support";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("login");
@@ -103,6 +104,12 @@ function App() {
             openGuide={openGuide}
             toggleFavorite={toggleFavorite}
           />
+        );
+      case "support":
+        return (
+         <Support
+           setCurrentPage={setCurrentPage}
+         />
         );
 
       default:

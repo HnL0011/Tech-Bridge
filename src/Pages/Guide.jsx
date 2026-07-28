@@ -147,6 +147,13 @@ function Guide({ guide, setCurrentPage }) {
                 >
                   Change Response
                 </button>
+                <button
+                   type="button"
+                   className="primary-button"
+                   onClick={() => setCurrentPage("support")}
+                >
+                  📞 Still Need Help?
+                </button>
               </div>
             )}
           </section>
