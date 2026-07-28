@@ -888,8 +888,130 @@
     align-items: stretch;
   }
 }
+/* ==========================
+   Accessibility - Large Text
+========================== */
 
+.large-text {
+  font-size: 1.15rem;
+}
 
+.large-text h1 {
+  font-size: 4rem;
+}
+
+.large-text h2 {
+  font-size: 2.6rem;
+}
+
+.large-text h3 {
+  font-size: 2rem;
+}
+
+.large-text p,
+.large-text span,
+.large-text button,
+.large-text input,
+.large-text small,
+.large-text label {
+  font-size: 1.2rem;
+}
+
+.large-text .primary-button,
+.large-text .link-button {
+  padding: 16px 30px;
+}
+
+.large-text .category-card {
+  min-height: 240px;
+}
+
+.large-text .guide-card {
+  min-height: 280px;
+}
+/* Accessibility toggle switches */
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 54px;
+  height: 30px;
+}
+
+.toggle-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  border: 2px solid #aab4c4;
+  border-radius: 999px;
+  background: #e7ebf1;
+  transition: 0.2s ease;
+}
+
+.toggle-slider::before {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+  content: "";
+  transition: 0.2s ease;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  border-color: #2f63e9;
+  background: #2f63e9;
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(24px);
+}
+
+.toggle-switch input:focus-visible + .toggle-slider {
+  outline: 3px solid rgb(47 99 233 / 30%);
+  outline-offset: 3px;
+}
+
+/* Larger text mode */
+
+.accessibility-large-text {
+  font-size: 118%;
+}
+
+.accessibility-large-text .site-header button,
+.accessibility-large-text .primary-button,
+.accessibility-large-text .link-button,
+.accessibility-large-text input {
+  font-size: 1.1rem;
+}
+
+.accessibility-large-text .hero-section h1 {
+  font-size: 4rem;
+}
+
+.accessibility-large-text .content-section h2,
+.accessibility-large-text .profile-card h2 {
+  font-size: 2.4rem;
+}
+
+.accessibility-large-text p,
+.accessibility-large-text small,
+.accessibility-large-text label,
+.accessibility-large-text .category-card span,
+.accessibility-large-text .guide-card span {
+  font-size: 1.15rem;
+}
 /* =========================
    Search Device Filters
 ========================= */

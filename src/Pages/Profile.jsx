@@ -1,6 +1,11 @@
 import guides from "../data/guides";
 
-function Profile({ setCurrentPage, openGuide }) {
+function Profile({
+  setCurrentPage,
+  openGuide,
+  largeText,
+  setLargeText,
+}) {
   const favoriteGuide = guides[0];
 
   return (
@@ -27,6 +32,13 @@ function Profile({ setCurrentPage, openGuide }) {
             onClick={() => setCurrentPage("search")}
           >
             Search
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setCurrentPage("support")}
+          >
+            Support
           </button>
 
           <button
@@ -90,7 +102,7 @@ function Profile({ setCurrentPage, openGuide }) {
           <section className="profile-card">
             <h2>Settings</h2>
 
-            <div className="setting-row">
+            <label className="setting-row">
               <div>
                 <strong>Larger Text</strong>
 
@@ -99,26 +111,23 @@ function Profile({ setCurrentPage, openGuide }) {
                 </p>
               </div>
 
-              <input
-                type="checkbox"
-                aria-label="Enable larger text"
-              />
-            </div>
+              <span className="toggle-switch">
+                <input
+                  type="checkbox"
+                  checked={largeText}
+                  onChange={(event) =>
+                    setLargeText(event.target.checked)
+                  }
+                  aria-label="Enable larger text"
+                />
 
-            <div className="setting-row">
-              <div>
-                <strong>Email Notifications</strong>
+                <span className="toggle-slider" />
+              </span>
+            </label>
 
-                <p>
-                  Receive updates about new guides.
-                </p>
-              </div>
+            
 
-              <input
-                type="checkbox"
-                aria-label="Enable email notifications"
-              />
-            </div>
+            
 
             <button
               type="button"

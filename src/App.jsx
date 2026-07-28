@@ -6,15 +6,16 @@ import Home from "./Pages/Home";
 import Search from "./Pages/Search";
 import Guide from "./Pages/Guide";
 import Profile from "./Pages/Profile";
+import Support from "./Pages/Support";
 
 import guides from "./data/guides";
-import Support from "./Pages/Support";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("login");
   const [selectedGuide, setSelectedGuide] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [favoriteGuideIds, setFavoriteGuideIds] = useState([]);
+  const [largeText, setLargeText] = useState(false);
 
   function openSearch(query = "") {
     setSearchQuery(query);
@@ -48,15 +49,15 @@ function App() {
         return <Login setCurrentPage={setCurrentPage} />;
 
       case "home":
-       return (
-       <Home
-         setCurrentPage={setCurrentPage}
-         openSearch={openSearch}
-         openGuide={openGuide}
-        searchQuery={searchQuery}
-         setSearchQuery={setSearchQuery}
-    />
-  );
+        return (
+          <Home
+            setCurrentPage={setCurrentPage}
+            openSearch={openSearch}
+            openGuide={openGuide}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+        );
 
       case "search":
         return (
@@ -74,7 +75,10 @@ function App() {
             <main className="centered-page">
               <section className="message-card">
                 <h1>No Guide Selected</h1>
-                <p>Please return to Search and choose a guide.</p>
+
+                <p>
+                  Please return to Search and choose a guide.
+                </p>
 
                 <button
                   type="button"
@@ -104,13 +108,14 @@ function App() {
             favoriteGuides={favoriteGuides}
             openGuide={openGuide}
             toggleFavorite={toggleFavorite}
+            largeText={largeText}
+            setLargeText={setLargeText}
           />
         );
+
       case "support":
         return (
-         <Support
-           setCurrentPage={setCurrentPage}
-         />
+          <Support setCurrentPage={setCurrentPage} />
         );
 
       default:
@@ -118,7 +123,10 @@ function App() {
           <main className="centered-page">
             <section className="message-card">
               <h1>Page Not Found</h1>
-              <p>The page you requested could not be found.</p>
+
+              <p>
+                The page you requested could not be found.
+              </p>
 
               <button
                 type="button"
@@ -133,7 +141,15 @@ function App() {
     }
   }
 
-  return renderCurrentPage();
+  return (
+    <div
+      className={
+        largeText ? "accessibility-large-text" : ""
+      }
+    >
+      {renderCurrentPage()}
+    </div>
+  );
 }
 
 export default App;
