@@ -5,6 +5,8 @@ function Profile({
   openGuide,
   largeText,
   setLargeText,
+  highContrast,
+  setHighContrast,
 }) {
   const favoriteGuide = guides[0];
 
@@ -119,6 +121,29 @@ function Profile({
                     setLargeText(event.target.checked)
                   }
                   aria-label="Enable larger text"
+                />
+
+                <span className="toggle-slider" />
+              </span>
+            </label>
+
+            <label className="setting-row">
+              <div>
+                <strong>High Contrast</strong>
+
+                <p>
+                  Increase contrast to make text and buttons easier to see.
+                </p>
+              </div>
+
+              <span className="toggle-switch">
+                <input
+                  type="checkbox"
+                  checked={highContrast}
+                  onChange={(event) =>
+                    setHighContrast(event.target.checked)
+                  }
+                  aria-label="Enable high contrast mode"
                 />
 
                 <span className="toggle-slider" />

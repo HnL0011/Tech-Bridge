@@ -1012,6 +1012,54 @@
 .accessibility-large-text .guide-card span {
   font-size: 1.15rem;
 }
+
+/* High Contrast Mode */
+
+.high-contrast-mode {
+  background: #000;
+  color: #fff;
+}
+
+.high-contrast-mode .page {
+  background: #000;
+  color: #fff;
+}
+
+.high-contrast-mode .profile-card,
+.high-contrast-mode .guide-card,
+.high-contrast-mode .category-card,
+.high-contrast-mode .message-card,
+.high-contrast-mode .support-contact-card,
+.high-contrast-mode .support-faq-card,
+.high-contrast-mode .profile-header-card {
+  background: #111;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.high-contrast-mode h1,
+.high-contrast-mode h2,
+.high-contrast-mode h3,
+.high-contrast-mode p,
+.high-contrast-mode strong,
+.high-contrast-mode span,
+.high-contrast-mode small {
+  color: #fff;
+}
+
+.high-contrast-mode .primary-button,
+.high-contrast-mode .logout-button,
+.high-contrast-mode .logout-profile-button {
+  background: #ffd400;
+  color: #000;
+  border: 2px solid #fff;
+}
+
+.high-contrast-mode input {
+  background: #222;
+  color: #fff;
+  border: 2px solid #fff;
+}
 /* =========================
    Search Device Filters
 ========================= */
@@ -1064,3 +1112,36 @@
     width: 100%;
   }
 }
+/* Fix guide step text visibility */
+
+.guide-step,
+.guide-step p,
+.guide-step h3,
+.guide-step span,
+.step-card,
+.step-card p,
+.step-card h3,
+.step-card span {
+  color: #1f2937;
+}
+
+.guide-step {
+  background: #ffffff;
+}
+
+.high-contrast-mode .guide-step,
+.high-contrast-mode .guide-step p,
+.high-contrast-mode .guide-step h3,
+.high-contrast-mode .guide-step span,
+.high-contrast-mode .step-card,
+.high-contrast-mode .step-card p,
+.high-contrast-mode .step-card h3,
+.high-contrast-mode .step-card span {
+  color: #ffffff;
+}
+
+.high-contrast-mode .guide-step,
+.high-contrast-mode .step-card {
+  background: #111111;
+}
+

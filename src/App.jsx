@@ -16,6 +16,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [favoriteGuideIds, setFavoriteGuideIds] = useState([]);
   const [largeText, setLargeText] = useState(false);
+  const [highContrast, setHighContrast] = useState(false);
 
   function openSearch(query = "") {
     setSearchQuery(query);
@@ -110,6 +111,8 @@ function App() {
             toggleFavorite={toggleFavorite}
             largeText={largeText}
             setLargeText={setLargeText}
+            highContrast={highContrast}
+            setHighContrast={setHighContrast}
           />
         );
 
@@ -142,14 +145,15 @@ function App() {
   }
 
   return (
-    <div
-      className={
-        largeText ? "accessibility-large-text" : ""
-      }
-    >
-      {renderCurrentPage()}
-    </div>
-  );
+  <div
+    className={`
+      ${largeText ? "accessibility-large-text" : ""}
+      ${highContrast ? "high-contrast-mode" : ""}
+    `}
+  >
+    {renderCurrentPage()}
+  </div>
+);
 }
 
 export default App;

@@ -84,22 +84,35 @@ function Guide({ guide, setCurrentPage }) {
           </div>
 
           <div className="steps-list">
-            {guide.steps.map((step, index) => (
-              <section
-                className="step-card"
-                key={`${guide.id}-${index}`}
-              >
-                <div className="step-number">
-                  {index + 1}
-                </div>
+  {guide.steps.map((step, index) => {
+    const stepIsText = typeof step === "string";
 
-                <div>
-                  <h2>{step.title}</h2>
+    return (
+      <section
+        className="step-card"
+        key={`${guide.id}-${index}`}
+      >
+        <div className="step-number">
+          {index + 1}
+        </div>
 
-                  <p>{step.description}</p>
-                </div>
-              </section>
-            ))}
+        <div className="step-content">
+          {stepIsText ? (
+            <p>{step}</p>
+          ) : (
+            <>
+              {step.title && <h2>{step.title}</h2>}
+
+              {step.description && (
+                <p>{step.description}</p>
+              )}
+            </>
+          )}
+        </div>
+      </section>
+    );
+  })}
+
           </div>
 
           <section className="helpful-section">
