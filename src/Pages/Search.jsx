@@ -76,14 +76,19 @@ function Search({
           >
             Search
           </button>
-
+          <button
+            type="button"
+            onClick={() => setCurrentPage("support")}
+          >
+            Support
+          </button>
           <button
             type="button"
             onClick={() => setCurrentPage("profile")}
           >
             Profile
           </button>
-
+          
           <button
             type="button"
             className="logout-button"
@@ -175,7 +180,13 @@ function Search({
               >
                 💻 Windows
               </button>
-
+              <button
+                type="button"
+                className="secondary-button"
+                onClick={() => handleDeviceFilter("Mac")}
+              >
+                🍎 Mac
+              </button>
               <button
                 type="button"
                 className="text-button"
